@@ -13,9 +13,12 @@ nav:
     - Stories: stories.md
     - APIs: apis.md
   - Visualization and Analysis:
-    - Google Earth Engine: gee_intro.md
-    - Demo Dataset: gee_demo_data.md
-    - Image Visualization: gee_viz.md
+    - Google Earth Engine: earth_engine_intro.md
+    - Demo Dataset: earth_engine_demo_data.md
+    - Image Visualization: earth_engine_visualization.md
+    - Image Collection Filtering: earth_engine_filter.md
+    - NDVI Timeseries Plotting: earth_engine_ndvi_over_time.md
+  - Hack The Planet: happy_hacking.md
 markdown_extensions:
     - toc:
         baselevel: 2

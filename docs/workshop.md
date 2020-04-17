@@ -11,5 +11,4 @@ Think about how biogeochemical systems and human society inter-relate:
 - introduce Planet tools and resources
 - walk through imagery download workflows
 - visualize and analyze Planet imagery in Google Earth Engine
-- demonstrate GIS integrations
 - Q&A
