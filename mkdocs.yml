@@ -1,0 +1,14 @@
+site_name: Big Earth Hacks 2020
+theme: 
+  name:   material
+extra_css:
+  - stylesheets/extra.css
+nav:
+  - Introduction: index.md
+  - Workshop Overview: workshop.md
+  - Planet's Platform: 
+    - Explorer: explorer.md
+    - Orders: orders.md
+markdown_extensions:
+    - toc:
+        baselevel: 2
