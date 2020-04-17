@@ -7,8 +7,15 @@ nav:
   - Introduction: index.md
   - Workshop Overview: workshop.md
   - Planet's Platform: 
+    - Getting An Account: account.md
     - Explorer: explorer.md
     - Orders: orders.md
+    - Stories: stories.md
+    - APIs: apis.md
+  - Visualization and Analysis:
+    - Google Earth Engine: gee_intro.md
+    - Demo Dataset: gee_demo_data.md
+    - Image Visualization: gee_viz.md
 markdown_extensions:
     - toc:
         baselevel: 2
