@@ -15,7 +15,7 @@
     
     
       
-        <title>Google Earth Engine - Big Earth Hacks 2020</title>
+        <title>NDVI Timeseries Plotting - Big Earth Hacks 2020</title>
       
     
     
@@ -49,6 +49,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#band-math" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Google Earth Engine
+              NDVI Timeseries Plotting
             
           </span>
         </div>
@@ -286,18 +291,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Google Earth Engine" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../earth_engine_intro/" title="Google Earth Engine" class="md-nav__link">
       Google Earth Engine
     </a>
-    
   </li>
 
         
@@ -307,7 +305,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../gee_demo_data/" title="Demo Dataset" class="md-nav__link">
+    <a href="../earth_engine_demo_data/" title="Demo Dataset" class="md-nav__link">
       Demo Dataset
     </a>
   </li>
@@ -319,14 +317,121 @@
 
 
   <li class="md-nav__item">
-    <a href="../gee_viz/" title="Image Visualization" class="md-nav__link">
+    <a href="../earth_engine_visualization/" title="Image Visualization" class="md-nav__link">
       Image Visualization
     </a>
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../earth_engine_filter/" title="Image Collection Filtering" class="md-nav__link">
+      Image Collection Filtering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        NDVI Timeseries Plotting
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="NDVI Timeseries Plotting" class="md-nav__link md-nav__link--active">
+      NDVI Timeseries Plotting
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#band-math" class="md-nav__link">
+    Band Math
+  </a>
+  
+    <nav class="md-nav" aria-label="Band Math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculating-ndvi" class="md-nav__link">
+    Calculating NDVI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ndvi-on-the-whole-collection" class="md-nav__link">
+    NDVI on the whole collection
+  </a>
+  
+    <nav class="md-nav" aria-label="NDVI on the whole collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeseries" class="md-nav__link">
+    Timeseries
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../happy_hacking/" title="Hack The Planet" class="md-nav__link">
+      Hack The Planet
+    </a>
   </li>
 
     
@@ -337,6 +442,69 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#band-math" class="md-nav__link">
+    Band Math
+  </a>
+  
+    <nav class="md-nav" aria-label="Band Math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculating-ndvi" class="md-nav__link">
+    Calculating NDVI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ndvi-on-the-whole-collection" class="md-nav__link">
+    NDVI on the whole collection
+  </a>
+  
+    <nav class="md-nav" aria-label="NDVI on the whole collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeseries" class="md-nav__link">
+    Timeseries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -346,12 +514,54 @@
                   
                 
                 
-                  <h1>Google Earth Engine</h1>
+                  <h1>NDVI Timeseries Plotting</h1>
                 
-                <p><img alt="Google Earth Engine" src="../img/gee.png" /></p>
-<p>This platform stores large remote sensing datasets and enables analysis on Google's scalable cloud compute infrastructure.</p>
-<p>Not having to move data in order to change or share your analysis code enables faster iteration and collaboration.</p>
-<p>Additionally, you can pull in multiple datasets from the ever-growing <strong><a href="https://developers.google.com/earth-engine/datasets/catalog">dataset catalog</a></strong> and fuse them together in new ways in just a few lines of code.</p>
+                <h2 id="band-math">Band Math</h2>
+<p>Since these images have visible and NIR bands, we can calculate the <a href="https://earthobservatory.nasa.gov/features/MeasuringVegetation/measuring_vegetation_2.php">Normalized Difference Vegetation Index (NDVI)</a> to visualize vegetation density patterns.</p>
+<p>How might vegetation density be relevant to wildland fire monitoring, prediction, and prevention?</p>
+<h3 id="calculating-ndvi">Calculating NDVI</h3>
+<p>We can take a normalized difference in the NIR and red bands like this:</p>
+<pre><code>var img = imageCollection.first();
+var nir = img.select('b4');
+var red = img.select('b3');
+var ndvi = nir.subtract(red).divide(nir.add(red)).rename('NDVI');
+print(ndvi)
+</code></pre>
+
+<p>This results in a new image with an NDVI band. </p>
+<p>You can get the median NDVI of that image like this:</p>
+<pre><code>print(ndvi.reduceRegion({reducer: ee.Reducer.median(), scale: 30}));
+</code></pre>
+
+<p>Visualizing the NDVI band:</p>
+<pre><code>var visParams = {min: 0, max: 1};
+Map.addLayer(ndvi, visParams, &quot;ndvi&quot;);
+</code></pre>
+
+<p>There's a builtin <code>normalizedDifference</code> function we can use:</p>
+<pre><code>var ndvi2 = img.normalizedDifference(['b4', 'b3']).rename('NDVI');
+print(ndvi2.reduceRegion({reducer: ee.Reducer.median(), scale: 30}));
+</code></pre>
+
+<h3 id="ndvi-on-the-whole-collection">NDVI on the whole collection</h3>
+<p>Above we showed how to get NDVI for one image. Let's calculate NDVI for the whole collection:</p>
+<pre><code>function addNDVI(image) {
+  return image.addBands(image.normalizedDifference(['b4', 'b3']).rename('NDVI'));
+}
+
+var ndviCol = imageCollection.map(addNDVI).select('NDVI');
+</code></pre>
+
+<p>Visually inspect the new collection on the Map:</p>
+<pre><code>Map.addLayer(ndviCol.first(), visParams, &quot;ndvi2&quot;);
+</code></pre>
+
+<h4 id="timeseries">Timeseries</h4>
+<p>Add a geometry to your map before running this chart generation snippet:</p>
+<pre><code>print(ui.Chart.image.seriesByRegion(ndviCol, [geometry], ee.Reducer.mean(), 'NDVI', 30, 'system:time_start'))
+</code></pre>
+
+<p>you can replace the single <code>[geometry]</code> array with an array of multiple geometries to get per-region line graphs!</p>
                 
               
               
@@ -370,7 +580,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../apis/" title="APIs" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../earth_engine_filter/" title="Image Collection Filtering" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -379,19 +589,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                APIs
+                Image Collection Filtering
               </div>
             </div>
           </a>
         
         
-          <a href="../gee_demo_data/" title="Demo Dataset" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../happy_hacking/" title="Hack The Planet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Demo Dataset
+                Hack The Planet
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

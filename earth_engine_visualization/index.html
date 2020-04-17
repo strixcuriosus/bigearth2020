@@ -15,7 +15,7 @@
     
     
       
-        <title>Demo Dataset - Big Earth Hacks 2020</title>
+        <title>Image Visualization - Big Earth Hacks 2020</title>
       
     
     
@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#collection-access" class="md-skip">
+        <a href="#get-the-dataset" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Demo Dataset
+              Image Visualization
             
           </span>
         </div>
@@ -293,8 +293,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../gee_intro/" title="Google Earth Engine" class="md-nav__link">
+    <a href="../earth_engine_intro/" title="Google Earth Engine" class="md-nav__link">
       Google Earth Engine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../earth_engine_demo_data/" title="Demo Dataset" class="md-nav__link">
+      Demo Dataset
     </a>
   </li>
 
@@ -312,14 +324,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Demo Dataset
+        Image Visualization
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
         </span>
       </label>
     
-    <a href="./" title="Demo Dataset" class="md-nav__link md-nav__link--active">
-      Demo Dataset
+    <a href="./" title="Image Visualization" class="md-nav__link md-nav__link--active">
+      Image Visualization
     </a>
     
       
@@ -336,15 +348,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#collection-access" class="md-nav__link">
-    Collection Access
+  <a href="#get-the-dataset" class="md-nav__link">
+    Get the dataset
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-in-this-collection" class="md-nav__link">
-    What's in this Collection
+  <a href="#show-an-image" class="md-nav__link">
+    Show an image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-the-parameters" class="md-nav__link">
+    Change the parameters
   </a>
   
 </li>
@@ -362,14 +381,38 @@
 
 
   <li class="md-nav__item">
-    <a href="../gee_viz/" title="Image Visualization" class="md-nav__link">
-      Image Visualization
+    <a href="../earth_engine_filter/" title="Image Collection Filtering" class="md-nav__link">
+      Image Collection Filtering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../earth_engine_ndvi_over_time/" title="NDVI Timeseries Plotting" class="md-nav__link">
+      NDVI Timeseries Plotting
     </a>
   </li>
 
         
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../happy_hacking/" title="Hack The Planet" class="md-nav__link">
+      Hack The Planet
+    </a>
   </li>
 
     
@@ -397,15 +440,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#collection-access" class="md-nav__link">
-    Collection Access
+  <a href="#get-the-dataset" class="md-nav__link">
+    Get the dataset
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-in-this-collection" class="md-nav__link">
-    What's in this Collection
+  <a href="#show-an-image" class="md-nav__link">
+    Show an image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-the-parameters" class="md-nav__link">
+    Change the parameters
   </a>
   
 </li>
@@ -426,25 +476,47 @@
                   
                 
                 
-                  <h1>Demo Dataset</h1>
+                  <h1>Image Visualization</h1>
                 
-                <p>For this workshop, we will be exploring a dataset of Planet's Surface Reflectance product in California in 2018.</p>
-<h3 id="collection-access">Collection Access</h3>
-<p>Make sure this collection import works for you:</p>
+                <p>We can visualize Planet's iamagery on the Earth Engine Map.</p>
+<h3 id="get-the-dataset">Get the dataset</h3>
+<p>First, make sure to import this ImageCollection:</p>
 <pre><code>var imageCollection = ee.ImageCollection(&quot;projects/sat-io/open-ca/ps4bsr&quot;);
-print(imageCollection.size());
 </code></pre>
 
-<h3 id="whats-in-this-collection">What's in this Collection</h3>
-<p>This ImageCollection contains 2273 surface reflectance images. </p>
-<p>Planet's surface reflectance assets are atmospherically-corrected analytic imagery stored as 16-bit scaled (surface). These images have 4 bands:</p>
-<ul>
-<li>Blue: 455 - 515 nm</li>
-<li>Green: 500 - 590 nm</li>
-<li>Red: 590 - 670 nm</li>
-<li>NIR: 780 - 860 nm</li>
-</ul>
-<p>Find more details about the Surface Reflectance (SR) product in Planet's <strong><a href="https://assets.planet.com/docs/combined-imagery-product-spec-april-2019.pdf">imagery product spec</a></strong></p>
+<h3 id="show-an-image">Show an image</h3>
+<p>Now, let's set up some visualization params</p>
+<pre><code>var visualBands = [&quot;b3&quot;,&quot;b2&quot;,&quot;b1];
+var falseColorBands = [&quot;b4&quot;,&quot;b3&quot;,&quot;b2&quot;];
+
+// try changing these
+var visParams = {
+  &quot;opacity&quot;:1,
+  &quot;bands&quot;: visualBands,
+  &quot;min&quot;:0,
+  &quot;max&quot;:10000
+};
+</code></pre>
+
+<p>Get the first image from the collection, and center the Map around it.</p>
+<pre><code>var firstImage = imageCollection.first();
+Map.centerObject(imageCollection.first(), 12)
+</code></pre>
+
+<p>Add the image as a Map layer using the image id to name the layer.</p>
+<pre><code>var imageId = firstImage.id().getInfo()
+print(imageId)
+Map.addLayer(firstImage, visParams, imageId)
+</code></pre>
+
+<h3 id="change-the-parameters">Change the parameters</h3>
+<p>Look at the per-band min and max values in the image:</p>
+<pre><code>print(firstImage.reduceRegion({reducer: ee.Reducer.minMax(), scale: 30}));
+</code></pre>
+
+<p>Try changing the visParams in the code editor or in the "Layers" settings on the Map UI.</p>
+<p>Inspect the image to see available metadata.</p>
+<p>Clip the image to an area of interest.</p>
                 
               
               
@@ -463,7 +535,7 @@ print(imageCollection.size());
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../gee_intro/" title="Google Earth Engine" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../earth_engine_demo_data/" title="Demo Dataset" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -472,19 +544,19 @@ print(imageCollection.size());
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Google Earth Engine
+                Demo Dataset
               </div>
             </div>
           </a>
         
         
-          <a href="../gee_viz/" title="Image Visualization" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../earth_engine_filter/" title="Image Collection Filtering" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Image Visualization
+                Image Collection Filtering
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
