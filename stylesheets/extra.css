@@ -1,0 +1,14 @@
+:root {
+  /* Default color shades */
+  --md-default-fg-color:               #8c1515;
+  --md-default-bg-color:               #FFF;
+
+  /* Primary color shades */
+  --md-primary-fg-color:               #8c1515;
+  --md-primary-bg-color:               #FFF;
+  --md-primary-bg-color--light:        #999;
+
+  /* Code block color shades */
+  --md-code-bg-color:                  #dad7cb;
+  --md-code-fg-color:                  #00505c;
+}
